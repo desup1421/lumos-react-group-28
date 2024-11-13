@@ -52,6 +52,7 @@ const ContactCard = () => {
   ];
 
   return (
+    // contact card build with looping data
     <div className='px-[30px] pt-[35px]  border rounded-xl w-[360px] pb-[35px] flex flex-col '>
       <div className='flex flex-col gap-y-[30px]'>
         {contactCardData.map((item, index) => {
