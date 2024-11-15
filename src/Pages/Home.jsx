@@ -3,6 +3,7 @@ import SectionHome from '../Components/SectionHome';
 import SectionAbout from '../Components/SectionAbout';
 import SectionPlaning from '../Components/SectionPlaning';
 import SectionWhatWeDo from '../Components/sectionWhatWeDo';
+import SectionService from '../Components/SectionService';
 
 const Home = () => {
   return (
@@ -22,6 +23,9 @@ const Home = () => {
       {/* What we do section START */}
       <SectionWhatWeDo />
       {/* What we do section END */}
+      {/* Service section START */}
+      <SectionService />
+      {/* Service section END */}
     </div>
   );
 };
