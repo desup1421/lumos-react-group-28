@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactForm = () => {
   return (
-    <div className="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-8 ">
+    <div className="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-8 w-1/2">
       <form>
         <div className="grid gap-4">
           {/* Grid */}
