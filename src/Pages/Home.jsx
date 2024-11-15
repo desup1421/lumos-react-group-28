@@ -4,42 +4,11 @@ import Button from '../Components/Button';
 import MaskGroupImage from '../assets/img/Maskgroup.jpg';
 import InfoCard from '../Components/InfoCard';
 import BlackIcon from '../assets/img/Black.jpg';
-import MainCard from '../Components/MainCard';
-import Black5Icon from '../assets/img/Black-5.jpg';
-import Black6Icon from '../assets/img/Black-6.jpg';
-import Black7Icon from '../assets/img/Black-7.jpg';
-import Black8Icon from '../assets/img/Black-8.jpg';
 import SectionHome from '../Components/SectionHome';
 import SectionAbout from '../Components/SectionAbout';
+import SectionPlaning from '../Components/SectionPlaning';
 
 const Home = () => {
-  const cardDataOurProcess = [
-    {
-      icon: Black5Icon,
-      title: 'Research',
-      description: 'It is a long established fact that a reader will be distracted by the readable content of a page.',
-      number: '1',
-    },
-    {
-      icon: Black6Icon,
-      title: 'Design',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page.',
-      number: '2',
-    },
-    {
-      icon: Black7Icon,
-      title: 'Develope',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page.',
-      number: '3',
-    },
-    {
-      icon: Black8Icon,
-      title: 'Test',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page.',
-      number: '4',
-    },
-  ];
-
   return (
     <div>
       {/* Hero section START */}
@@ -51,15 +20,7 @@ const Home = () => {
       {/* About section END */}
 
       {/* Planning section START */}
-      <div className='flex flex-col items-center justify-center px-52 py-10 pb-20'>
-        <SectionTitle breadcrumb='Planning' sectionTitle='Our Process' position={'center'} />
-
-        <div className='flex flex-col md:flex-row items-center justify-center gap-5'>
-          {cardDataOurProcess.map((card, index) => (
-            <MainCard key={index} icon={card.icon} title={card.title} description={card.description} number={card.number} />
-          ))}
-        </div>
-      </div>
+      <SectionPlaning />
       {/* Planning section END */}
 
       {/* What we do section START */}
