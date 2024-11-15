@@ -94,7 +94,7 @@ const Navbar = () => {
             </Link>
           ))}
           {/* Looping through navLinks and rendering links */}
-         
+
           <button className='px-4 py-2 bg-accent text-white rounded-md w-full' onClick={toggleMenu}>
             Get In Touch
           </button>
