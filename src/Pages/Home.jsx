@@ -10,6 +10,7 @@ import Black6Icon from '../assets/img/Black-6.jpg';
 import Black7Icon from '../assets/img/Black-7.jpg';
 import Black8Icon from '../assets/img/Black-8.jpg';
 import SectionHome from '../Components/SectionHome';
+import SectionAbout from '../Components/SectionAbout';
 
 const Home = () => {
   const cardDataOurProcess = [
@@ -42,25 +43,11 @@ const Home = () => {
   return (
     <div>
       {/* Hero section START */}
-        <SectionHome />
+      <SectionHome />
       {/* Hero section END */}
 
       {/* About section START */}
-      <div className='flex flex-col md:flex-row items-center justify-center px-52 py-10 bg-secondary'>
-        <div className='flex flex-col items-center justify-center'>
-          <img src={MaskGroupImage} alt='' className='max-w-lg max-h-lg rounded-5' />
-        </div>
-
-        <div className='flex flex-col items-start justify-center px-5'>
-          <SectionTitle breadcrumb='We are here' sectionTitle='One of the Fastest Way to Business Growth' position={'left'} />
-          <p className='text-base pl-3 pr-10'>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
-          </p>
-          <div className='mt-5 ml-3'>
-            <InfoCard bgImage='bg-secondary' title='Get Instant Professional Advice' image={BlackIcon} desc='Ready to Help' number='+62 259519252' />
-          </div>
-        </div>
-      </div>
+      <SectionAbout />
       {/* About section END */}
 
       {/* Planning section START */}
