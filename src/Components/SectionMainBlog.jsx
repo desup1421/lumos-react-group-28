@@ -77,7 +77,7 @@ const SectionMainBlog = () => {
           </div>
 
           {/* Secondary blog post 2 */}
-          <div className='flex gap-x-8 shadow-xl border rounded-xl '>
+           <div className='flex gap-x-8 shadow-xl border rounded-xl '>
             <div className='p-8 md:flex gap-x-5'>
               {/* Blog image */}
               <img className='md:w-[250px] w-full  md:h-full' src={MainBlogImage3} alt='' />
