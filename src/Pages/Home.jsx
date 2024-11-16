@@ -8,6 +8,7 @@ import SectionLeader from '../Components/SectionLeader';
 import SectionContact from '../Components/SectionContact';
 import SectionBlog from '../Components/SectionBlog';
 import SectionBanner from '../Components/SectionBanner';
+import SectionPortFolio from '../Components/SectionPortfolio';
 
 const Home = () => {
   return (
@@ -47,6 +48,10 @@ const Home = () => {
       {/* Banner Section Start */}
       <SectionBanner />
       {/* Banner Section End*/}
+
+      {/* Portfolio Section Start */}
+      <SectionPortFolio />
+      {/* Portfolio Section End */}
     </div>
   );
 };
