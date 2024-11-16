@@ -8,7 +8,7 @@ import Portfolio from "./Pages/Portfolio";
 import Services from "./Pages/Services";
 import Blogs from "./Pages/Blogs";
 import Footer from "./Layouts/Footer";
-import BlogDetail from "./Pages/blogDetail";
+import BlogDetail from "./Pages/BlogDetail";
 import TestimonialSection from "./Components/SectionTestimonial";
 
 function App() {
