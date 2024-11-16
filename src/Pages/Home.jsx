@@ -10,6 +10,7 @@ import Black5Icon from "../assets/img/Black-5.jpg";
 import Black6Icon from "../assets/img/Black-6.jpg";
 import Black7Icon from "../assets/img/Black-7.jpg";
 import Black8Icon from "../assets/img/Black-8.jpg";
+import TestimonialSection from "../Components/SectionTestimonial";
 
 const Home = () => {
   const cardDataOurProcess = [
@@ -116,9 +117,7 @@ const Home = () => {
               key={index}
               icon={card.icon}
               title={card.title}
-
               description={card.description}
-
               number={card.number}
             />
           ))}
@@ -158,7 +157,6 @@ const Home = () => {
             />
 
             <Button>View More </Button>
-
           </div>
         </div>
       </div>
