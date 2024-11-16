@@ -6,7 +6,6 @@ import SectionWhatWeDo from '../Components/sectionWhatWeDo';
 import SectionService from '../Components/SectionService';
 import SectionLeader from '../Components/SectionLeader';
 import SectionContact from '../Components/SectionContact';
-import SectionMainBlog from '../Components/SectionMainBlog';
 
 const Home = () => {
   return (
@@ -35,9 +34,6 @@ const Home = () => {
       {/* Contact Section Start */}
       <SectionContact />
       {/* Contact Section End */}
-      {/* MainBlog Section Start */}
-      <SectionMainBlog />
-      {/* MainBlog Section End */}
     </div>
   );
 };
