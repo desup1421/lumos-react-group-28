@@ -1,7 +1,9 @@
-import React from "react";
-import DoSectionImage from "../assets/img/DoSectionImage.jpg";
-import GoalIcon from "../assets/img/goalIcon.png";
-import VisionIcon from "../assets/img/visionIcon.png";
+
+import React from 'react';
+import DoSectionImage from '../assets/img/DoSectionImage.jpg';
+import GoalIcon from '../assets/img/goalIcon.png';
+import VisionIcon from '../assets/img/visionIcon.png';
+
 
 const SectionWhatWeDo = () => {
   return (
