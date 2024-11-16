@@ -7,6 +7,7 @@ import SectionService from '../Components/SectionService';
 import SectionLeader from '../Components/SectionLeader';
 import SectionContact from '../Components/SectionContact';
 import SectionBlog from '../Components/SectionBlog';
+import SectionBanner from '../Components/SectionBanner';
 
 const Home = () => {
   return (
@@ -26,18 +27,26 @@ const Home = () => {
       {/* What we do section START */}
       <SectionWhatWeDo />
       {/* What we do section END */}
+
       {/* Service section START */}
       <SectionService />
       {/* Service section END */}
+
       {/* Leader section START */}
       <SectionLeader />
       {/* Leader section END */}
+
       {/* Contact Section Start */}
       <SectionContact />
       {/* Contact Section End */}
+
       {/* Blog Section Start */}
       <SectionBlog />
       {/* Blog Section End */}
+
+      {/* Banner Section Start */}
+      <SectionBanner />
+      {/* Banner Section End*/}
     </div>
   );
 };
