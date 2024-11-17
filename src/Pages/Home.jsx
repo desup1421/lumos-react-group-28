@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SectionHome from '../Components/SectionHome';
 import SectionAbout from '../Components/SectionAbout';
@@ -10,7 +9,7 @@ import SectionContact from '../Components/SectionContact';
 import SectionBlog from '../Components/SectionBlog';
 import SectionBanner from '../Components/SectionBanner';
 import SectionPortFolio from '../Components/SectionPortfolio';
-
+import TestimonialSection from '../Components/SectionTestimonial';
 
 const Home = () => {
   return (
@@ -32,7 +31,7 @@ const Home = () => {
       {/* What we do section END */}
 
       {/* Service section START */}
-      <SectionService />
+      <SectionService limit={6} />
       {/* Service section END */}
 
       {/* Leader section START */}
@@ -40,7 +39,7 @@ const Home = () => {
       {/* Leader section END */}
 
       {/* Testimonial Section Start */}
-      <SectionTestimonial />
+      <TestimonialSection />
       {/* Testimonial Section End */}
 
       {/* Contact Section Start */}
@@ -48,7 +47,7 @@ const Home = () => {
       {/* Contact Section End */}
 
       {/* Blog Section Start */}
-      <SectionBlog />
+      <SectionBlog limit={3} />
       {/* Blog Section End */}
 
       {/* Banner Section Start */}

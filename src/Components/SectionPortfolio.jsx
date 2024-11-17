@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
-import portFolio from '../assets/img/Rectangle.png';
-import portFolio_1 from '../assets/img/Rectangle-1.png';
-import portFolio_2 from '../assets/img/Rectangle-2.png';
-import portFolio_3 from '../assets/img/Rectangle-3.png';
-import portFolio_4 from '../assets/img/Rectangle-4.png';
+import React, { useState, useEffect } from 'react';
+import { useFetch } from '../hooks/useFetch';
 
 const SectionPortFolio = () => {
-  // State to track the active button
+  const { dataApi } = useFetch(`portfolio`);
+  const [portfolio, setPortfolios] = useState([]);
+  const [filteredPortfolio, setFilteredPortfolio] = useState([]);
   const [activeTab, setActiveTab] = useState('ALL');
+  // Data for blog cards
+  useEffect(() => {
+    setPortfolios(dataApi);
+    setFilteredPortfolio(dataApi);
+  }, [dataApi]);
+
+  // State to track the active button
 
   // Array of navigation items
   const navItems = ['ALL', 'LIFE', 'MOMENTS', 'NATURE', 'STORIES', 'TRAVEL'];
+
+  const filterByCategory = (category) => {
+    setActiveTab(category); // Update kategori aktif
+    if (category === 'All') {
+      setFilteredPortfolio(portfolio); // Tampilkan semua data
+    } else {
+      setFilteredPortfolio(portfolio.filter((item) => item.content === category));
+    }
+  };
 
   return (
     <section className='container mx-auto lg:w-10/12 md:w-11/12 px-4 py-44 md:my-5 font-raleway '>
@@ -32,15 +46,12 @@ const SectionPortFolio = () => {
               <div className='flex flex-wrap justify-center items-center'>
                 {navItems.map((item, index) => (
                   <button
-                    key={index} // Assign a unique key for each button
+                    key={index}
                     className={`py-2 px-4 md:py-3 md:px-6 border border-gray-400 text-xs md:text-sm 
-              ${item === activeTab ? 'bg-accent text-white' : 'bg-white text-gray-400'}
-              ${index === 0 ? 'rounded-l-lg' : ''} // Add rounded corners to the first button
-              ${index === navItems.length - 1 ? 'rounded-r-lg' : ''} // Add rounded corners to the last button
-              hover:bg-accent hover:text-white transition-colors duration-300`} // Styling for hover and transitions
-                    onClick={() => setActiveTab(item)} // Set the active tab when a button is clicked
-                  >
-                    {item} {/* Display the navigation item text */}
+                       ${item === activeTab ? 'bg-accent text-white' : 'bg-white text-gray-400'}
+                       hover:bg-accent hover:text-white transition-colors duration-300`}
+                    onClick={() => filterByCategory(item)}>
+                    {item}
                   </button>
                 ))}
               </div>
@@ -48,31 +59,17 @@ const SectionPortFolio = () => {
           </div>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6'>
           {/* Card 1: Top Left (Besar) */}
-          <div className='col-span-1 md:col-span-2 lg:col-span-8'>
-            <img src={portFolio} alt='Portfolio 1' className='rounded-lg w-full h-full shadow-lg' />
-          </div>
-
-          {/* Card 2: Top Right */}
-          <div className='col-span-1 md:col-span-1 lg:col-span-4'>
-            <img src={portFolio_4} alt='Portfolio 2' className='rounded-lg w-full h-auto shadow-lg' />
-          </div>
-
-          {/* Card 3: Bottom Left */}
-          <div className='col-span-1 md:col-span-1 lg:col-span-3'>
-            <img src={portFolio_2} alt='Portfolio 3' className='rounded-lg w-full h-full object-cover shadow-lg' />
-          </div>
-
-          {/* Card 4: Bottom Middle */}
-          <div className='col-span-1 md:col-span-1 lg:col-span-3'>
-            <img src={portFolio_1} alt='Portfolio 4' className='rounded-lg w-full h-full shadow-lg' />
-          </div>
-
-          {/* Card 5: Bottom Right */}
-          <div className='col-span-1 md:col-span-2 lg:col-span-6'>
-            <img src={portFolio_3} alt='Portfolio 5' className='rounded-lg w-full h-full shadow-lg' />
-          </div>
+          {filteredPortfolio && filteredPortfolio.length > 0 ? (
+            filteredPortfolio.map((item, index) => (
+              <div key={index} className='col-span-1 md:col-span-1 lg:col-span-1'>
+                <img src={item.image} alt={`Portfolio ${item.title}`} className='rounded-lg w-full h-full shadow-lg' />
+              </div>
+            ))
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
       <div className='flex justify-center mt-10'>
