@@ -3,7 +3,7 @@ import Header from '../Components/Header';
 import SectionMainBlog from '../Components/SectionMainBlog';
 import SectionBlog from '../Components/SectionBlog';
 import SectionBanner from '../Components/SectionBanner';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { useSchema } from '../context/SchemaContext';
 
 const Blogs = () => {

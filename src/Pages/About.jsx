@@ -4,7 +4,7 @@ import SectionAbout from '../Components/SectionAbout';
 import SectionLeader from '../Components/SectionLeader';
 import SectionBanner from '../Components/SectionBanner';
 import { useSchema } from '../context/SchemaContext';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
   const schema = useSchema();
