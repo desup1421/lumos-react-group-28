@@ -12,7 +12,7 @@ const Contact = () => {
       <Helmet>
         <title>Contact Page</title>
         <meta name='description' content='Welcome to the home page of Your Website. We provide the best services in town.' />
-        <script type='application/ld+json'>{JSON.stringify(schema.homepage)}</script>
+        <script type='application/ld+json'>{JSON.stringify(schema.contact)}</script>
       </Helmet>
       ;{/* Header Section Start*/}
       <Header breadcrumb={'Contact'} />

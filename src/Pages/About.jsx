@@ -11,9 +11,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Page</title>
+        <title>About Page</title>
         <meta name='description' content='Welcome to the home page of Your Website. We provide the best services in town.' />
-        <script type='application/ld+json'>{JSON.stringify(schema.blog_detail)}</script>
+        <script type='application/ld+json'>{JSON.stringify(schema.about)}</script>
       </Helmet>
       <Header breadcrumb='About' />
 
