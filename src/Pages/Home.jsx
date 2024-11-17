@@ -10,8 +10,16 @@ import SectionBlog from '../Components/SectionBlog';
 import SectionBanner from '../Components/SectionBanner';
 import SectionPortFolio from '../Components/SectionPortfolio';
 import TestimonialSection from '../Components/SectionTestimonial';
+import { Helmet } from 'react-helmet';
+import { useSchema } from '../context/SchemaContext';
 
 const Home = () => {
+  const schema = useSchema();
+  <Helmet>
+    <title>Home Page</title>
+    <meta name='description' content='Welcome to the home page of Your Website. We provide the best services in town.' />
+    <script type='application/ld+json'>{JSON.stringify(schema.homepage)}</script>
+  </Helmet>;
   return (
     <div>
       {/* Hero section START */}
