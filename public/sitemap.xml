@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home page -->
+  <url>
+    <loc>https://lumos-react-group-28-m9la.vercel.app</loc>
+    <lastmod>2024-11-13</lastmod>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About page -->
+  <url>
+    <loc>https://lumos-react-group-28-m9la.vercel.app/about</loc>
+    <lastmod>2024-11-13</lastmod>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Contact page -->
+  <url>
+    <loc>https://lumos-react-group-28-m9la.vercel.app/contact</loc>
+    <lastmod>2024-11-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Services page -->
+  <url>
+    <loc>https://lumos-react-group-28-m9la.vercel.app/services</loc>
+    <lastmod>2024-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfolio page -->
+  <url>
+    <loc>https://lumos-react-group-28-m9la.vercel.app/portfolio</loc>
+    <lastmod>2024-11-13</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+   <!-- Blogs page -->
+  <url>
+    <loc>https://lumos-react-group-28-m9la.vercel.app/Blogs</loc>
+    <lastmod>2024-11-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
