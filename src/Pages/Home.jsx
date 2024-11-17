@@ -31,7 +31,7 @@ const Home = () => {
       {/* What we do section END */}
 
       {/* Service section START */}
-      <SectionService limit={6} />
+      <SectionService />
       {/* Service section END */}
 
       {/* Leader section START */}
