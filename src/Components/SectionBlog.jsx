@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useFetch } from '../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
-const SectionBlog = ({ limit }) => {
-  const { dataApi } = useFetch(`article?page=1&limit=${limit}`);
+const SectionBlog = () => {
+  const { dataApi } = useFetch(`article`);
   const [blog, setBlog] = useState([]);
   // Data for blog cards
   useEffect(() => {
@@ -23,7 +24,7 @@ const SectionBlog = ({ limit }) => {
           {blog && blog.length > 1 ? (
             blog.map((card, index) => {
               return (
-                <div key={index} className='bg-white  flex flex-col justify-center rounded-xl p-8 gap-y-6 shadow-lg'>
+                <Link to={`blog/${card.id}`} key={index} className='bg-white  flex flex-col justify-center rounded-xl p-8 gap-y-6 shadow-lg'>
                   <img src={card.imageUrl} alt='' />
                   <div>
                     <h3 className='text-3xl text-accent font-semibold'>{card.title}</h3>
@@ -37,7 +38,7 @@ const SectionBlog = ({ limit }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })
           ) : (

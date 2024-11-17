@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFetch } from '../hooks/useFetch';
+import { Link } from 'react-router-dom';
 
 const SectionMainBlog = ({ limit }) => {
   const { dataApi } = useFetch(`article?page=1&limit=${limit}`);
@@ -22,7 +23,7 @@ const SectionMainBlog = ({ limit }) => {
 
       {/* Main content section for blog posts */}
       {blogs && blogs.length > 0 ? (
-        <div className='grid p-8 shadow-xl border rounded-xl'>
+        <Link to={`blog/${blogs[0].id}`} className='grid p-8 shadow-xl border rounded-xl'>
           {/* Blog image */}
           <img className='w-full h-auto ' src={blogs[1].image} alt='' />
           <div className='grid gap-y-4'>
@@ -44,7 +45,7 @@ const SectionMainBlog = ({ limit }) => {
               {/* <p className='text-sm text-slate-600'>2 Min Read</p> */}
             </div>
           </div>
-        </div>
+        </Link>
       ) : (
         <div></div>
       )}
@@ -55,7 +56,7 @@ const SectionMainBlog = ({ limit }) => {
         {blogs && blogs.length > 1 ? (
           blogs.map((blog, index) => {
             <div key={index} className='flex gap-x-8 shadow-xl border rounded-xl'>
-              <div className='p-8 md:flex md:gap-x-5'>
+              <Link to={`blog/${blogs.id}`} className='p-8 md:flex md:gap-x-5'>
                 {/* Blog image */}
                 <img className='md:w-[250px] w-full' src={blog.image} alt='' />
                 <div className='grid gap-y-4'>
@@ -77,7 +78,7 @@ const SectionMainBlog = ({ limit }) => {
                     {/* <p className='text-sm text-slate-600'>2 Min Read</p>   */}
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>;
           })
         ) : (
