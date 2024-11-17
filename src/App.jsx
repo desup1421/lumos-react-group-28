@@ -10,10 +10,11 @@ import Blogs from './Pages/Blogs';
 import Footer from './Layouts/Footer';
 import BlogDetail from './Pages/BlogDetail';
 import TestimonialSection from './Components/SectionTestimonial';
+import { SchemaProvider } from './context/SchemaContext';
 
 function App() {
   return (
-    <>
+    <SchemaProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -28,7 +29,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </SchemaProvider>
   );
 }
 

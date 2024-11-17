@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Header from '../Components/Header';
 import { useParams } from 'react-router';
 import { useFetch } from '../hooks/useFetch';
+import { Helmet } from 'react-helmet';
+import { useSchema } from '../context/SchemaContext';
 
 const BlogDetail = () => {
+  const schema = useSchema();
   const [blog, setBlog] = useState({});
   const { slug } = useParams();
   const { dataApi } = useFetch(`article/${slug}`);
@@ -19,6 +22,11 @@ const BlogDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Blog Page</title>
+        <meta name='description' content='Welcome to the home page of Your Website. We provide the best services in town.' />
+        <script type='application/ld+json'>{JSON.stringify(schema.blog_detail)}</script>
+      </Helmet>
       <div>
         {/* Header */}
         <Header breadcrumb={'Blog Detail'} />
