@@ -1,44 +1,19 @@
-import React from 'react';
-import WebDesignIcon from '../assets/img/webdesignicon.jpg';
-import UiUxDesignIcon from '../assets/img/uiuxdesignicon.jpg';
-import WebMigrationIcon from '../assets/img/webmigrationicon.jpg';
-import Appdevelopmenticon from '../assets/img/appdevelopmenticon.jpg';
-import HubSpoticon from '../assets/img/hubspoticon.jpg';
-import Emailmarketing from '../assets/img/emailmarketing.jpg';
+import React, { useState, useEffect } from 'react';
+import { useFetch } from '../hooks/useFetch';
 
-const SectionService = () => {
-  const cardDataOurProcess = [
-    {
-      icon: WebDesignIcon,
-      title: 'Web Design / Development',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout',
-    },
-    {
-      icon: UiUxDesignIcon,
-      title: 'UI/UX Design',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout',
-    },
-    {
-      icon: WebMigrationIcon,
-      title: 'Website Migration',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout',
-    },
-    {
-      icon: Appdevelopmenticon,
-      title: 'App Development',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout',
-    },
-    {
-      icon: HubSpoticon,
-      title: 'HubSpot Integration',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout',
-    },
-    {
-      icon: Emailmarketing,
-      title: 'Email Marketing',
-      description: 'It is a long established fact that a reader will be distra by the readable content of a page when looking at its layout, when looking at its layout',
-    },
-  ];
+const SectionService = ({ limit }) => {
+  // Fetch data from the API using the custom hook
+  const [services, setServices] = useState([]);
+
+  const { dataApi } = useFetch(`expertise?limit=${limit}`);
+
+  useEffect(() => {
+    if (dataApi) {
+      setServices(dataApi);
+    }
+  }, [dataApi]);
+
+  console.log(services);
 
   return (
     <section>
@@ -51,32 +26,36 @@ const SectionService = () => {
 
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 px-2'>
           {/* Loop through card data to generate individual cards */}
-          {cardDataOurProcess.map((card, index) => {
-            return (
-              <div key={index} className='bg-secondary px-8 py-6 relative flex flex-col justify-center gap-y-3 rounded-lg'>
-                {/* Icon section */}
-                <div className='flex justify-between'>
-                  <div className='bg-white p-3 rounded-lg'>
-                    <img src={card.icon} alt='' />
+          {services && services.length > 0 ? (
+            services.map((card, index) => {
+              return (
+                <div key={index} className='bg-secondary px-8 py-6 relative flex flex-col justify-center gap-y-3 rounded-lg'>
+                  {/* Icon section */}
+                  <div className='flex justify-between'>
+                    <div className='bg-white p-3 rounded-lg'>
+                      <img src={card.imageUrl} alt='' />
+                    </div>
                   </div>
+
+                  {/* Card number displayed as a large number */}
+
+                  {/* Card title */}
+                  <h3 className='font-bold font-raleway text-xl text-primary'>{card.title}</h3>
+
+                  {/* Decorative lines */}
+                  <div className='flex gap-1 mb-4'>
+                    <div className='bg-accent h-1 w-14 rounded-lg'></div>
+                    <div className='bg-accent h-1 w-4 rounded-lg'></div>
+                  </div>
+
+                  {/* Card description */}
+                  <p className='text-base'>{card.desc}</p>
                 </div>
-
-                {/* Card number displayed as a large number */}
-
-                {/* Card title */}
-                <h3 className='font-bold font-raleway text-xl text-primary'>{card.title}</h3>
-
-                {/* Decorative lines */}
-                <div className='flex gap-1 mb-4'>
-                  <div className='bg-accent h-1 w-14 rounded-lg'></div>
-                  <div className='bg-accent h-1 w-4 rounded-lg'></div>
-                </div>
-
-                {/* Card description */}
-                <p className='text-base'>{card.description}</p>
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </section>

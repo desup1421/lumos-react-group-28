@@ -1,23 +1,30 @@
 import React from 'react';
-import PortfolioGroup from '../Components/PortfolioGroup';
-import Banner from '../Components/Banner';
-import bannerImg from '../assets/img/banner.jpeg';
+import Header from '../Components/Header';
+import SectionPortFolio from '../Components/SectionPortfolio';
+import SectionBanner from '../Components/SectionBanner';
+import { Helmet } from 'react-helmet';
+import { useSchema } from '../context/SchemaContext';
 
 const Portfolio = () => {
+  const schema = useSchema();
   return (
-    <div>
-      <section>
-        <PortfolioGroup />
-      </section>
-      <section className="flex justify-center items-center my-10">
-				<div className="w-4/5 md:w-3/5">
-					<Banner image={bannerImg} text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae." button="Learn More" />
-				</div>
-      </section>
-    </div>
-    
-  )
-}
+    <>
+      <Helmet>
+        <title>Portfolio Page</title>
+        <meta name='description' content='Welcome to the home page of Your Website. We provide the best services in town.' />
+        <script type='application/ld+json'>{JSON.stringify(schema.portfolio)}</script>
+      </Helmet>
+      ;{/* Header Section Start */}
+      <Header breadcrumb={'Portfolio'} />
+      {/* Header Section End */}
+      {/* Portfolio Section Start */}
+      <SectionPortFolio />
+      {/* Portfolio Section End */}
+      {/* Banner Section Start */}
+      <SectionBanner />
+      {/* Banner Section End */}
+    </>
+  );
+};
 
-
-export default Portfolio
+export default Portfolio;

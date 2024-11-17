@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import DOMPurify from "dompurify";
@@ -50,9 +51,11 @@ const SectionContact = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 md:gap-x-10 gap-y-10">
           {/* Contact form */}
+
           <div className="col-span-2 border p-8 rounded-xl bg-white">
             <form onSubmit={handleSubmit}>
               {" "}
+
               {/* Form to collect user input */}
               <div className="grid gap-4">
                 {/* Input field for first name */}
@@ -60,6 +63,7 @@ const SectionContact = () => {
                   <label htmlFor="hs-firstname-contacts-1" className="sr-only">
                     First Name
                   </label>
+
                   <input
                     onChange={handleChange}
                     value={formData.name}
@@ -77,6 +81,7 @@ const SectionContact = () => {
                   <label htmlFor="hs-email-contacts-1" className="sr-only">
                     Email
                   </label>
+
                   <input
                     onChange={handleChange}
                     value={formData.email}
@@ -87,6 +92,7 @@ const SectionContact = () => {
                     className="py-3 px-4 block w-full border-gray-200 bg-secondary rounded-lg text-sm"
                     required
                   />
+
                 </div>
 
                 {/* Input field for phone number */}
@@ -94,6 +100,7 @@ const SectionContact = () => {
                   <label htmlFor="hs-phone-number-1" className="sr-only">
                     Phone Number
                   </label>
+
                   <input
                     onChange={handleChange}
                     type="text"
@@ -104,6 +111,7 @@ const SectionContact = () => {
                     className="py-3 px-4 block w-full border-gray-200 bg-secondary rounded-lg text-sm"
                     required
                   />
+
                 </div>
 
                 {/* Textarea for additional details */}
@@ -114,6 +122,7 @@ const SectionContact = () => {
                   <textarea
                     onChange={handleChange}
                     value={formData.message}
+
                     name="message"
                     id="hs-about-contacts-1"
                     rows={4}
@@ -121,6 +130,7 @@ const SectionContact = () => {
                     className="py-3 px-4 block w-full border-gray-200 bg-secondary rounded-lg text-sm"
                     required
                   ></textarea>
+
                 </div>
               </div>
               {/* Submit button */}
@@ -190,6 +200,7 @@ const SectionContact = () => {
 // Data for contact cards
 const contactCardData = [
   {
+
     icon: "bx bx-phone-call", // Icon for phone contact
     title: "Call Anytime", // Title for the card
     description: [
@@ -216,6 +227,7 @@ const contactCardData = [
       {
         des_1: "20 Island Park Road, ", // Address line 1
         des_2: "New Jearsy, New York, USA", // Address line 2
+
       },
     ],
   },
@@ -223,10 +235,12 @@ const contactCardData = [
 
 // Data for social media icons
 const contactCardSosial = [
+
   { icon: "bx bxl-linkedin" }, // LinkedIn icon
   { icon: "bx bxl-instagram" }, // Instagram icon
   { icon: "bx bxl-facebook" }, // Facebook icon
   { icon: "bx bxl-twitter" }, // Twitter icon
+
 ];
 
 export default SectionContact;

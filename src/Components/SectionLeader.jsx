@@ -1,8 +1,16 @@
-import React from 'react';
-import Leader_1 from '../assets/img/Rectangle14.jpg';
-import Leader_2 from '../assets/img/Rectangle15.jpg';
+import React, { useState, useEffect } from 'react';
+import { useFetch } from '../hooks/useFetch';
 
 const SectionLeader = () => {
+  const { dataApi } = useFetch('team');
+  const [teams, setTeams] = useState(null);
+
+  console.log(dataApi);
+
+  // Data for About Us
+  useEffect(() => {
+    setTeams(dataApi);
+  }, [dataApi]);
   return (
     <section className='bg-secondary py-40'>
       <div className='max-w-7xl mx-auto px-4 '>
@@ -16,25 +24,24 @@ const SectionLeader = () => {
 
         {/* Grid for displaying leader cards */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
-          {[
-            // Array of leader details
-            { name: 'Larry F. Burnett', role: 'CEO', image: Leader_1 },
-            { name: 'Meghan J. Webb', role: 'CTO', image: Leader_2 },
-            { name: 'Yvonne J. Cullum', role: 'CFO', image: Leader_1 },
-            { name: 'Diana H. Williams', role: 'COO', image: Leader_2 },
-          ].map((leader, index) => (
-            // Individual leader card
-            <div key={index} className='flex flex-col items-center'>
-              <div className='w-full aspect-square rounded-lg overflow-hidden mb-4'>
-                {/* Leader's image */}
-                <img src={leader.image} alt={leader.name} className='w-full h-full object-cover' />
+          {teams && teams.length > 0 ? (
+            teams.map((team, index) => (
+              // Individual leader card
+              <div key={index} className='flex flex-col items-center'>
+                <div className='w-full aspect-square rounded-lg overflow-hidden mb-4'>
+                  {/* Leader's image */}
+                  <img src={team.imageUrl} alt={team.name} className='w-full h-full object-cover' />
+                </div>
+                {/* Leader's name */}
+                <h3 className='text-red-500 text-lg font-medium'>{team.name}</h3>
+                {/* Leader's role */}
+                <p className='text-gray-600'>{team.role}</p>
               </div>
-              {/* Leader's name */}
-              <h3 className='text-red-500 text-lg font-medium'>{leader.name}</h3>
-              {/* Leader's role */}
-              <p className='text-gray-600'>{leader.role}</p>
-            </div>
-          ))}
+            ))
+          ) : (
+            <div
+            ></div>
+          )}
         </div>
         {/* End of leaders grid */}
       </div>

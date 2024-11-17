@@ -1,17 +1,25 @@
-import React from "react";
-import SectionHome from "../Components/SectionHome";
-import SectionAbout from "../Components/SectionAbout";
-import SectionPlaning from "../Components/SectionPlaning";
-import SectionWhatWeDo from "../Components/SectionWhatWeDo";
-import SectionService from "../Components/SectionService";
-import SectionLeader from "../Components/SectionLeader";
-import SectionContact from "../Components/SectionContact";
-import SectionBlog from "../Components/SectionBlog";
-import SectionBanner from "../Components/SectionBanner";
-import SectionPortFolio from "../Components/SectionPortfolio";
-import SectionTestimonial from "../Components/SectionTestimonial";
+import React from 'react';
+import SectionHome from '../Components/SectionHome';
+import SectionAbout from '../Components/SectionAbout';
+import SectionPlaning from '../Components/SectionPlaning';
+import SectionWhatWeDo from '../Components/SectionWhatWeDo';
+import SectionService from '../Components/SectionService';
+import SectionLeader from '../Components/SectionLeader';
+import SectionContact from '../Components/SectionContact';
+import SectionBlog from '../Components/SectionBlog';
+import SectionBanner from '../Components/SectionBanner';
+import SectionPortFolio from '../Components/SectionPortfolio';
+import TestimonialSection from '../Components/SectionTestimonial';
+import { Helmet } from 'react-helmet';
+import { useSchema } from '../context/SchemaContext';
 
 const Home = () => {
+  const schema = useSchema();
+  <Helmet>
+    <title>Home Page</title>
+    <meta name='description' content='Welcome to the home page of Your Website. We provide the best services in town.' />
+    <script type='application/ld+json'>{JSON.stringify(schema.homepage)}</script>
+  </Helmet>;
   return (
     <div>
       {/* Hero section START */}
@@ -39,7 +47,7 @@ const Home = () => {
       {/* Leader section END */}
 
       {/* Testimonial Section Start */}
-      <SectionTestimonial />
+      <TestimonialSection />
       {/* Testimonial Section End */}
 
       {/* Contact Section Start */}
@@ -47,7 +55,7 @@ const Home = () => {
       {/* Contact Section End */}
 
       {/* Blog Section Start */}
-      <SectionBlog />
+      <SectionBlog limit={3} />
       {/* Blog Section End */}
 
       {/* Banner Section Start */}

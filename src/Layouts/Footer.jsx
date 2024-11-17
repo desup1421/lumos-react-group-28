@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useFetch } from '../hooks/useFetch';
 import Logo from '../assets/img/Vector.jpg';
 
 const Footer = () => {
+  const { postData } = useFetch('subscribe');
+
+  const [formData, setFormData] = useState('');
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormData({
+      ...formData, // Spread the existing form data
+      [name]: value, // Update the value of the field being changed
+    });
+    console.log(formData);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    postData(formData).then(
+      setFormData('') // Reset the form data
+    );
+  };
+
   const contactCardSosial = [{ icon: 'bx bxl-linkedin' }, { icon: 'bx bxl-instagram' }, { icon: 'bx bxl-facebook' }, { icon: 'bx bxl-twitter' }];
 
   const services = ['Web Design/Development', 'App Development', 'UI/UX Design', 'HubSpot Integration', 'Email Marketing', 'Website Migration'];
@@ -75,8 +99,8 @@ const Footer = () => {
         <div>
           <h2 className='py-2 text-2xl font-semibold border-b-4 border-accent max-w-fit mb-4'>Subscribe Us</h2>
           <p className='mb-4'>It is a long established fact that a reader will be distracted by the readable content of a page.</p>
-          <form className='flex flex-col gap-2'>
-            <input type='email' placeholder='Email' className='p-3 rounded bg-white text-black focus:outline-none' />
+          <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
+            <input type='email' placeholder='Email' onChange={handleChange} className='p-3 rounded bg-white text-black focus:outline-none' />
             <div className='mt-5 justify-end w-full flex'>
               <button className='py-3 px-8  bg-accent text-white rounded-lg  hover:bg-accent-dark transition duration-300'>Submit</button>
             </div>
